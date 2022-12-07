@@ -3,9 +3,15 @@ package daniel.lop.io.marvelappstarter.ui.favorite
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 import daniel.lop.io.marvelappstarter.databinding.FragmentFavoriteCharacterBinding
 import daniel.lop.io.marvelappstarter.ui.base.BaseFragment
 
+/*
+ *  Dagger Hilt
+ *  8º passo => anotação permite que a classe Filha receba injeção de dependencias
+ */
+@AndroidEntryPoint
 class FavoriteCharacterFragment : BaseFragment<FragmentFavoriteCharacterBinding, FavoriteCharacterViewModel>() {
 
     override val viewModel: FavoriteCharacterViewModel by viewModels()

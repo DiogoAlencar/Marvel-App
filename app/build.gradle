@@ -3,6 +3,8 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
+    // Dagger Hilt
+    // 1º passo
     id 'dagger.hilt.android.plugin'
 }
 
@@ -93,7 +95,8 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
 
-    //Dagger - Hilt
+    // Dagger Hilt
+    // 2º passo implementar bibliotecas
     implementation "com.google.dagger:hilt-android:$hilt_version"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"

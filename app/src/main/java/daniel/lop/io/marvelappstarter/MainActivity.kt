@@ -1,12 +1,17 @@
-package daniel.lop.io.marvelappstarter.ui
+package daniel.lop.io.marvelappstarter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import daniel.lop.io.marvelappstarter.R
+import dagger.hilt.android.AndroidEntryPoint
 import daniel.lop.io.marvelappstarter.databinding.ActivityMainBinding
 
+/*
+ *  Dagger Hilt
+ *  5º passo => anotação permite que a classe PAI receba injeção de dependencias
+ */
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     // public key: 89a6951dda6eb99a004e7ae36cefc027

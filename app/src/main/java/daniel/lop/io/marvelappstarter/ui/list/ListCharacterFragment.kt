@@ -3,9 +3,15 @@ package daniel.lop.io.marvelappstarter.ui.list
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 import daniel.lop.io.marvelappstarter.databinding.FragmentListCharacterBinding
 import daniel.lop.io.marvelappstarter.ui.base.BaseFragment
 
+/*
+ *  Dagger Hilt
+ *  7º passo => anotação permite que a classe Filha receba injeção de dependencias
+ */
+@AndroidEntryPoint
 class ListCharacterFragment : BaseFragment<FragmentListCharacterBinding, ListCharacterViewModel>() {
 
     override val viewModel: ListCharacterViewModel by viewModels()
