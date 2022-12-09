@@ -11,6 +11,7 @@ interface ServiceApi {
 
     @GET("characters")
     suspend fun list(
+        // Se passar parametro ele retorna o objeto pesquisado, se não passar retorna lista completa
         @Query("nameStartsWith") nameStartsWith : String? = null
     ) : Response<CharacterModelResponse>
 
