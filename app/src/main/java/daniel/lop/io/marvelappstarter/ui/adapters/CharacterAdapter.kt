@@ -75,4 +75,7 @@ class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHold
     inner class CharacterViewHolder(val binding: ItemCharacterBinding) :
         RecyclerView.ViewHolder(binding.root)
 
+    fun getCharacterPosition(position: Int) : CharacterModel {
+        return characters[position]
+    }
 }

@@ -52,9 +52,8 @@ dependencies {
     // Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
-    // Room
+    // Room - 1º passo
     def room_version = "2.3.0"
-
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"

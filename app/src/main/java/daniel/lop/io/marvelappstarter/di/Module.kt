@@ -1,12 +1,17 @@
 package daniel.lop.io.marvelappstarter.di
 
+import android.content.Context
+import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import daniel.lop.io.marvelappstarter.data.local.MarvelDataBase
 import daniel.lop.io.marvelappstarter.data.remote.ServiceApi
 import daniel.lop.io.marvelappstarter.util.Constants.APIKEY
 import daniel.lop.io.marvelappstarter.util.Constants.BASE_URL
+import daniel.lop.io.marvelappstarter.util.Constants.DATABASE_NAME
 import daniel.lop.io.marvelappstarter.util.Constants.HASH
 import daniel.lop.io.marvelappstarter.util.Constants.PRIVATE_KEY
 import daniel.lop.io.marvelappstarter.util.Constants.PUBLIC_KEY
@@ -34,6 +39,22 @@ object Module {
      *  11º passo => Fornece uma instância única, atualiza automaticamente,
      *  prove essa instancia
      */
+
+    // prove uma instancia singleton do DB
+    @Singleton
+    @Provides
+    fun provideMarvelDatabase(
+        @ApplicationContext context: Context
+    ) = Room.databaseBuilder(
+        context,
+        MarvelDataBase::class.java,
+        DATABASE_NAME
+    ).build()
+
+    @Singleton
+    @Provides
+    fun provideMarvelDao(database: MarvelDataBase) = database.marvelDao()
+
     @Singleton
     @Provides
     fun provideOkHttpClient(): OkHttpClient {
