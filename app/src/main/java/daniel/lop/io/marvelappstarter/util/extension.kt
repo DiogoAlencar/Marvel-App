@@ -1,8 +1,10 @@
 package daniel.lop.io.marvelappstarter.util
 
 import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 
 fun Fragment.toast(message : String, duration : Int = Toast.LENGTH_LONG) {
     Toast.makeText(
@@ -27,4 +29,14 @@ fun String.limitDescription(characters: Int) : String {
         return "${this.substring(firstCharacter, characters-1)}..."
     }
     return this
+}
+
+fun loadImage(
+    image : ImageView,
+    path : String,
+    extension : String
+) {
+    Glide.with(image.context)
+        .load("$path.$extension")
+        .into(image)
 }

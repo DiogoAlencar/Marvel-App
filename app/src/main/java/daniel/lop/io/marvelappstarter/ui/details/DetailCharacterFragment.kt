@@ -15,10 +15,7 @@ import daniel.lop.io.marvelappstarter.databinding.FragmentDetailsCharacterBindin
 import daniel.lop.io.marvelappstarter.ui.adapters.ComicAdapter
 import daniel.lop.io.marvelappstarter.ui.base.BaseFragment
 import daniel.lop.io.marvelappstarter.ui.state.ResourceState
-import daniel.lop.io.marvelappstarter.util.hide
-import daniel.lop.io.marvelappstarter.util.limitDescription
-import daniel.lop.io.marvelappstarter.util.show
-import daniel.lop.io.marvelappstarter.util.toast
+import daniel.lop.io.marvelappstarter.util.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -111,9 +108,15 @@ class DetailCharacterFragment : BaseFragment<FragmentDetailsCharacterBinding, De
         } else {
             tvDescriptionCharacterDetails.text = characterModel.description.limitDescription(100)
         }
-        Glide.with(requireContext())
+
+        loadImage(
+            imgCharacterDetails,
+            characterModel.thumbnail.path,
+            characterModel.thumbnail.extension
+        )
+        /*Glide.with(requireContext())
             .load(characterModel.thumbnail.path + "." + characterModel.thumbnail.extension)
-            .into(imgCharacterDetails)
+            .into(imgCharacterDetails)*/
     }
 
     private fun setupRecyclerView() = with(binding) {

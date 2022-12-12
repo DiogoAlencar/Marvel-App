@@ -17,14 +17,15 @@ class SplashActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         setupSplash()
+        supportActionBar?.hide()
     }
 
     private fun setupSplash() = with(binding) {
         tvSplash.alpha = 0f
-        tvSplash.animate().setDuration(2000).alpha(1f).withEndAction {
+        tvSplash.animate().setDuration(2500).alpha(1f).withEndAction {
             val intent = Intent(this@SplashActivity, MainActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.slide_out_right)
             finish()
         }
     }

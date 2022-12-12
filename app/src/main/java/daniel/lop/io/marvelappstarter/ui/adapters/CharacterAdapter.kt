@@ -10,6 +10,7 @@ import daniel.lop.io.marvelappstarter.R
 import daniel.lop.io.marvelappstarter.data.model.character.CharacterModel
 import daniel.lop.io.marvelappstarter.databinding.ItemCharacterBinding
 import daniel.lop.io.marvelappstarter.util.limitDescription
+import daniel.lop.io.marvelappstarter.util.loadImage
 
 class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
 
@@ -31,10 +32,15 @@ class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHold
                 tvDescriptionCharacter.text = character.description.limitDescription(100)
             }
 
+            loadImage(
+                imgCharacter,
+                character.thumbnail.path,
+                character.thumbnail.extension
+            )
             // Carrega img de uma url
-            Glide.with(holder.itemView.context)
+            /*Glide.with(holder.itemView.context)
                 .load(character.thumbnail.path + "." + character.thumbnail.extension)
-                .into(imgCharacter)
+                .into(imgCharacter)*/
         }
 
         holder.itemView.setOnClickListener {
